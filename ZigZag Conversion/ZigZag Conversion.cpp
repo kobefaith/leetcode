@@ -1,48 +1,42 @@
 class Solution {
 public:
     string convert(string s, int nRows) {
-        string result;
-        int col;
-        int column;
-        int row;
-        if((s.size()<=nRows)||(nRows == 1)){
-           result=s;
-           return result;
-        }
-        if (s.size()%(2*nRows-2) !=0)
-             column = s.size()/(2*nRows-2) +1;
-        else 
-             column = s.size()/(2*nRows-2) ;
-        for(row =0 ;row<nRows;row++){
-            for(col=0;col<column;col++){
-                if(row == 0){
-                    result+=s[(2*nRows-2)*col];
-                }else if(row == nRows-1){
-                    if((s.size()%(2*nRows-2) >= nRows)||(s.size()%(2*nRows-2) == 0)){
-                        result+=s[nRows-1+(2*nRows-2)*col];
-                    }else{ 
-                        if(col <column-1){
-                             result+=s[nRows-1+(2*nRows-2)*col];
-                         }
-                    }
-                }else{
-                    if(((col <column-1)&&(s.size()%(2*nRows-2) !=0))||(s.size()%(2*nRows-2) ==0)){
-                        result+=s[row+(2*nRows-2)*col];
-                        result+=s[2*nRows-2-row+(2*nRows-2)*col];
-                    }else {
-                        if((row<=s.size()%(2*nRows-2))&&(s.size()%(2*nRows-2)<=nRows)){
-                             result+=s[row+(2*nRows-2)*col];
-                        }else if (((nRows-row-1)<=(s.size()%(2*nRows-2)-nRows))&&(s.size()%(2*nRows-2)>nRows)){
-                             result+=s[2*nRows-2-row+(2*nRows-2)*col];
-                        }
-                        
-                    }
-                }
-                
-            }
-            
-        }
-        
-        return result;
+        int i=0;
+	    int j=0;
+  	    string result;
+  	    if(nRows == 1)
+  	        return s;
+	    while(i < nRows){
+	        if(i == 0){
+	            while(j*(2*nRows-2) < s.size()){
+	                result += s[j*(2*nRows-2)];
+				    j++;
+			    }			
+			    i++;
+		    }else if(i < nRows-1){
+		 	   j=0;
+			   while(1){
+				   if((i+j*(2*nRows-2)) < s.size())
+				       result += s[i+j*(2*nRows-2)];
+				   else
+					   break;
+				   if((2*nRows-2-i+j*(2*nRows-2))<s.size())
+					   result += s[2*nRows-2-i+j*(2*nRows-2)];
+				   else
+					  break;
+				   j++;
+			   }			
+			   i++;
+		    }else{
+		        j=0;
+			    while(nRows-1+j*(2*nRows-2) < s.size()){
+			        result += s[nRows-1+j*(2*nRows-2)];
+				    j++;
+			    }
+			    i++;			
+		    }
+
+	  }
+      return result;    
     }
 };
