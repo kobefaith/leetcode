@@ -6,17 +6,18 @@ public:
 		ListNode *pre;
 		ListNode *beh;
 		ListNode *result;
+		
 		if(l1 == NULL)
-			return l2;
+			return l2;			
 		else if(l2 == NULL)
 			return l1;			
-		else if(l1->val <= l2->val){			    
+		else if (l1->val <= l2->val){			    
 				pre = l1;
 				p=l1;
 				s=l2;
 				result = l1;
 				beh = s->next;
-		}else if(l1->val > l2->val){			
+		}else if (l1->val > l2->val){			
 				pre = l2;
 				p=l2;
 				s=l1;
@@ -24,8 +25,8 @@ public:
 				beh = s->next;
 		}
 		p = p->next;
-		while(p !=NULL && s !=NULL){		
-			if(p->val < s->val){
+		while (p != NULL && s != NULL){		
+			if (p->val < s->val){
 			    p = p->next;
 				pre = pre->next;				
 			}else{
@@ -39,9 +40,10 @@ public:
 					break;
 			}
 		}  
-		if(p == NULL){
+		if (p == NULL){
 		   pre->next = s;
 		}
+		
 		return result;
     }
 };

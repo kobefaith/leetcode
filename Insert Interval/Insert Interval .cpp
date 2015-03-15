@@ -10,10 +10,11 @@
 class Solution {
 public:
     vector<Interval> insert(vector<Interval> &intervals, Interval newInterval) {
-        int i=0;
-        int j= intervals.size()-1;
-        while(i<intervals.size()){
-            if(newInterval.start > intervals[i].end){
+        int i = 0;
+        int j = intervals.size()-1;
+		
+        while (i < intervals.size()){
+            if (newInterval.start > intervals[i].end){
                 i++;
             }else{
                 if(newInterval.start > intervals[i].start)
@@ -21,17 +22,18 @@ public:
                 break;
             }
         }
-        while(j >=0){
+        while (j >= 0){
             if(newInterval.end < intervals[j].start){
                 j--;
             }else{
-                if(newInterval.end <intervals[j].end)
-                    newInterval.end =intervals[j].end;
+                if(newInterval.end < intervals[j].end)
+                    newInterval.end = intervals[j].end;
                 break;
             }
         }
         intervals.insert(intervals.begin()+i,newInterval);
         intervals.erase(intervals.begin()+i+1,intervals.begin()+j+2);
+		
         return intervals;
     }
 };

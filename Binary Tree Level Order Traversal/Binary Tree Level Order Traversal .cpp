@@ -15,29 +15,30 @@ public:
 	   queue<TreeNode*> qu;
        TreeNode *pre = root;
 	   TreeNode *index ;
-	   TreeNode *cur ;
-	   
+	   TreeNode *cur ;	   
 	   if(root == NULL)
 		   return result;
+		   
 	   qu.push(root);
-	   while(!qu.empty()){
+	   while (!qu.empty()){
 	       do{
 	           index = qu.front();
 	           qu.pop();
 			   temp.push_back(index->val);
-			   if(index->left != NULL){
+			   if (index->left != NULL){
 			   	   qu.push(index->left);
 			   	   cur = index->left;
 			   }
-			   if(index->right != NULL){
+			   if (index->right != NULL){
                	   qu.push(index->right);
                	   cur = index->right;
 			   }
-		   }while(index != pre);
+		   }while (index != pre);
 	       result.push_back(temp);
 		   temp.clear();
 		   pre = cur;		
 	  }
+	  
       return result; 
     }
 };

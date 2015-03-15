@@ -9,11 +9,12 @@
 class Solution {
 public:
     bool hasCycle(ListNode *head) {
-        if(head == NULL)
+        if (head == NULL)
             return false;
+			
         ListNode *pre = head;
         ListNode *cur = head;
-        while(cur != NULL){
+        while (cur != NULL){
             pre = pre->next;
             cur = cur->next;
             if(cur != NULL)
@@ -23,6 +24,7 @@ public:
             if(cur == pre)
                 return true;
         }
+		
         return false;
     }
 };

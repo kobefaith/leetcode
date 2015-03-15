@@ -5,13 +5,14 @@ public:
         result.push_back(temp);
         return;
     }
-    for(int i=0;i<cand.size();i++){
-        if(gap < cand[i])
+	
+    for (int i = 0; i < cand.size(); i++){
+        if (gap < cand[i])
            return;
         else{
-			if(temp.size() == 0)
+			if (temp.size() == 0)
 				temp.push_back(cand[i]);
-			else if(cand[i] >= temp[temp.size()-1])
+			else if (cand[i] >= temp[temp.size()-1])
 				temp.push_back(cand[i]);
 			else
 				continue;
@@ -23,8 +24,10 @@ public:
 vector<vector<int> > combinationSum(vector<int> &candidates, int target) {
 	vector<vector<int>> result;
 	vector<int> temp;
+	
 	sort(candidates.begin(),candidates.end());
 	dfs(candidates,target,result,temp);
+	
 	return result;    
 }
 };

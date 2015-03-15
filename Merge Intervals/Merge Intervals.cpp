@@ -11,15 +11,15 @@ class Solution {
 public:
     vector<Interval> merge(vector<Interval> &intervals) {
        int i=0,j;
-    if(intervals.size() <=1)
+    if (intervals.size() <= 1)
         return intervals;
 	vector<Interval> result	;
-	while(i<intervals.size()){
+	while (i < intervals.size()){
 		if(i == 0){
 			result.push_back(intervals[0]);
 		}else{
 			j=0;
-			while(j<result.size()){
+			while (j < result.size()){
 				if(intervals[i].start > result[j].end)
 					j++;
 				else if(intervals[i].end < result[j].start){

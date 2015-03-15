@@ -14,6 +14,7 @@ public:
               int carry=0;
               if(l1 == NULL && l2 == NULL)
                   return NULL;
+				  
               while(l1 != NULL || l2 != NULL){
                   int value;
                   if (l1 != NULL && l2 != NULL){
@@ -24,8 +25,8 @@ public:
                       l2 = l2->next;
                       first->next = new ListNode(value);
                       first = first->next;
-                  }else if(l1 == NULL){
-                      value =l2->val +carry;
+                  }else if (l1 == NULL){
+                      value = l2->val +carry;
                       carry = value/10;
                       value %= 10;
                       l2 = l2->next;
@@ -40,7 +41,7 @@ public:
                       first = first->next;
                   }
               }
-              if(carry !=0)
+              if (carry != 0)
                   first->next = new ListNode(carry);
               
               return result.next;
