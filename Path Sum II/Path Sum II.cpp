@@ -10,11 +10,12 @@
 class Solution {
 public:
     bool RecordPathSum(TreeNode *root, int sum,vector<vector<int> > &result,vector<int> temp) {
-        if(root == NULL)
+        if (root == NULL)
              return false;
+			 
         bool right,left;
-	    if(root->left == NULL && root->right == NULL ){
-	        if(sum == root->val){
+	    if (root->left == NULL && root->right == NULL ){
+	        if (sum == root->val){
 	            temp.push_back(root->val);
 			    result.push_back(temp);
 			    return true;
@@ -33,9 +34,11 @@ public:
  vector<vector<int> > pathSum(TreeNode *root, int sum) {
 	 vector<vector<int> > result;
 	 vector<int>  temp;
-	 if(root == NULL )
+	 
+	 if (root == NULL )
 		 return result;
 	 RecordPathSum(root,sum,result,temp);
+	 
 	 return result;
         
  }

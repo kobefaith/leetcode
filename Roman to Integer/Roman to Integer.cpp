@@ -21,6 +21,7 @@ int romanToInt(string s) {
              result += map(s[i]);
          }
       }
+	  
       return result;
 }
 };

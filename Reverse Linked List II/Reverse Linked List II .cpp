@@ -12,7 +12,7 @@ public:
         ListNode *end_next = end->next;
         ListNode *cur = begin;
         ListNode *beh = begin->next;
-        while(beh != end_next ){
+        while (beh != end_next ){
             ListNode *next;
             if(beh->next != NULL)
                next = beh->next;
@@ -33,14 +33,15 @@ public:
         ListNode *cur = head;
         ListNode *end = head;
         int i,j;
-        for( i=0,j=0;j<n-1;i++,j++){
-            if(i<m-1){
+        for ( i = 0,j = 0; j < n-1; i++,j++){
+            if(i < m-1){
                 pre = pre->next;
                 cur = cur->next;
             }
             end = end->next;
         }
         reverse(pre,cur,end);
+		
         return temp.next;
     }
 };

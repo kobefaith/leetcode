@@ -3,6 +3,7 @@ public:
     bool isMatch(const char *s, const char *p) {
         bool star = false;
 	    const char *str, *ptr;
+		
 	    for (str = s, ptr = p; *str != '\0'; str++, ptr++) {
 	        switch (*ptr) {
 	        case '?':
@@ -25,6 +26,7 @@ public:
 		 }
 	  }
 	  while (*ptr == '*') ptr++;
+	  
 	  return (*ptr == '\0');
  }
 };

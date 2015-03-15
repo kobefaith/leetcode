@@ -4,12 +4,12 @@ public:
         ListNode *result = head;		
         ListNode *pre = head;		
         ListNode *cur = head;
-        if(head == NULL)
+        if (head == NULL)
             return head;
         ListNode *beh = cur->next;
-        if(beh == NULL)
+        if (beh == NULL)
              return head;
-        if(beh->next == NULL){
+        if (beh->next == NULL){
             cur->next = NULL;
             beh->next = cur;
             result = beh;
@@ -21,7 +21,7 @@ public:
            cur = cur->next;
            beh = cur->next; 
         }
-        while(pre->next != NULL && cur->next != NULL ){
+        while (pre->next != NULL && cur->next != NULL ){
             cur->next = beh->next;
             beh->next = cur;
             pre->next = beh;
@@ -33,6 +33,7 @@ public:
 				break;
             beh = cur->next;
         }
+		
         return result;
     }
 };

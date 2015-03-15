@@ -2,8 +2,8 @@ class Solution {
 public:
     void rotate(vector<vector<int> > &matrix) {
 	 int temp;
-	 for(int i=0;i<matrix.size()/2;i++){
-		 for(int j=i;j<matrix[0].size()-i-1;j++){
+	 for (int i = 0; i < matrix.size()/2; i++){
+		 for (int j = i; j < matrix[0].size()-i-1; j++){
 				 temp = matrix[i][j];
 				 matrix[i][j] = matrix[matrix.size()-1-j][i];
 				 matrix[matrix.size()-1-j][i] = temp;

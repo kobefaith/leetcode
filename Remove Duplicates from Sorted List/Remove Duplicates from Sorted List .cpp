@@ -13,10 +13,10 @@ public:
 			 return head;
 		 ListNode *begin = head;
 		 ListNode *end = begin->next;
-		 if(end == NULL)
+		 if (end == NULL)
 			 return head;
-		 while(end != NULL){
-			 if(begin->val == end->val){
+		 while (end != NULL){
+			 if (begin->val == end->val){
 			     end = end->next;
 			 }else{
 			     begin->next = end;
@@ -25,6 +25,7 @@ public:
 			 }
 		 }
 		 begin ->next = NULL;
+		 
 		 return head;
     }
 };

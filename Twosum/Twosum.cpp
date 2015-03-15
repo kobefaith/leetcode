@@ -3,6 +3,7 @@ public:
     vector<int> twoSum(vector<int> &numbers, int target) {
         unordered_map<int, int> mapping;
         vector<int> result;
+		
         for (int i = 0; i < numbers.size(); i++) {
             mapping[numbers[i]] = i;
         }
@@ -14,6 +15,7 @@ public:
                break;
             }
         }
+		
         return result;
         
     }

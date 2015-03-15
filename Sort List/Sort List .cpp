@@ -24,6 +24,7 @@ public:
 }
 ListNode *mergeTwoLists(ListNode *l1, ListNode *l2) {
 	ListNode dummy(-1);
+	
 	for (ListNode* p = &dummy; l1 != nullptr || l2 != nullptr; p = p->next) {
 		int val1 = l1 == nullptr ? INT_MAX : l1->val;
 	    int val2 = l2 == nullptr ? INT_MAX : l2->val;
@@ -35,6 +36,7 @@ ListNode *mergeTwoLists(ListNode *l1, ListNode *l2) {
 	        l2 = l2->next;
         }
     }
+	
     return dummy.next;
 }
 };
