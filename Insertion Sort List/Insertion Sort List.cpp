@@ -20,9 +20,9 @@ public:
         beh->next = NULL;
         ListNode *temp;
         while(cur != NULL){
-            while(beh->val < cur->val && beh != NULL){
+            while(beh != NULL && beh->val < cur->val ){
+                pre = beh;
                 beh = beh->next;
-                pre = pre->next;
             }
             if (beh != NULL){
                 temp = cur->next;
@@ -30,7 +30,7 @@ public:
                 cur->next = beh;
             }else{
                 temp = cur->next;
-                beh->next = cur;
+                pre->next = cur;
                 cur->next = NULL;
             }
             cur = temp;
