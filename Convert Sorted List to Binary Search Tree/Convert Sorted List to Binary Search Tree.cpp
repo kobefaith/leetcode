@@ -23,6 +23,9 @@ public:
         }
         ListNode *slow = head;
         ListNode *fast = head->next;
+        if(fast != NULL && fast->next != NULL && fast->next->next == NULL){
+            return slow;
+	    }
         while(fast != NULL && fast->next != NULL){
             slow = slow->next;
             fast = fast->next->next;
@@ -43,12 +46,17 @@ public:
             root->right = NULL;
             return root;
         }
-        root->val = middle->next->val;
-        right = sortedListToBST(middle->next->next);
-        middle->next = NULL;
-        TreeNode *left = sortedListToBST(head);
-        root->left = left;
-        root->right = right;
-        return root;
+        if (middle->next == NULL){
+            root->val = middle->val;
+		    right = NULL;
+	    }else{
+	        root->val = middle->next->val;
+		    right = sortedListToBST(middle->next->next);
+	    }	
+	    middle->next = NULL;
+	    TreeNode *left = sortedListToBST(head);
+	    root->left = left;
+	    root->right = right;
+	    return root;
     }
 };
